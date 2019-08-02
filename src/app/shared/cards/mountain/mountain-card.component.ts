@@ -11,7 +11,7 @@ export class MountainComponent implements OnInit {
 
   @Input() card: Card;  // con el input permito(no obligatorio) que se le añada la informacón desde el html
 
-  @Output() propagar: EventEmitter<number> = new EventEmitter<number>();  //con el output envio informacion desde el hijo al padre
+  @Output() propagar: EventEmitter<number> = new EventEmitter<number>();  //con el output aviso de que se ha realizado el evento,y le pasa la id <number> desde el hijo al padre
 
   constructor(private cardservice: CardService,
               private router: Router) {

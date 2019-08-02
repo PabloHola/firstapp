@@ -9,23 +9,14 @@ import { CardService, Card } from 'src/app/services/card.service';
   templateUrl: './details.component.html'
 })
 export class VistaDetalleComponent  {
+  card: Card = null; //declaramos la variable card le decimos que es de tipo Card y la inicializamos en null
 
-  card: Card = null;
   constructor( private activatedRoute: ActivatedRoute, private cardservice: CardService) {
-
-    this.activatedRoute.params.subscribe( params => {
-      this.card = this.cardservice.getCard(parseInt(params['id']) );
+// mediante el observable subscribe y el parametro params con una arrow function le pasamos la id de una card obteniendola desde la url
+    this.activatedRoute.params.subscribe( params => {  
+      this.card = this.cardservice.getCard(parseInt(params['id']) ); 
      
     });
   }
-
-  // quien_soy_beach(){
-  // }
-
-  // quien_soy_mountain(){
-  // }
-
-
-
-
+  
 }

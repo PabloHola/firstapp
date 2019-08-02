@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class CardsComponent implements OnInit {
 
-  cards: Card[] = [];  //declaramos una variable y le asigamos el tipo card( interface)
+  cards: Card[] = [];  //declaramos una variable y le asigamos el tipo card[] (interface)
 
   
 
@@ -16,11 +16,11 @@ export class CardsComponent implements OnInit {
               private router: Router) {}
 
   ngOnInit() {
-     this.cards = this.cardservice.getCards();  //asignamos cada carta a cards
+     this.cards = this.cardservice.getCards();  //asignamos todas las cartas a cards
   }
 
   vistaDetalle(idx: number) {
-    return this.router.navigate(['/vistadetalle', idx]) // retornamos con el navigate la ruta y el parametro que queremos pasar
+    return this.router.navigate(['/vistadetalle', idx]); // retornamos con el navigate la ruta y el parametro que queremos pasar
   }
 
 }
