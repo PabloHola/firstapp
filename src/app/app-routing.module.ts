@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { VistaDetalleComponent } from './vista-detalle/vista-detalle.component';
+import { VistaDetalleComponent } from './details/details.component';
 import { HomeComponent } from './home/home.component';
 
 

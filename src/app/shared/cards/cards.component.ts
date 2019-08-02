@@ -1,28 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { Cards, CardService } from 'src/app/services/card.service';
+import { Card, CardService } from 'src/app/services/card.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cards',
-  templateUrl: './cards.component.html',
-  styleUrls: ['./cards.component.css']
+  templateUrl: './cards.component.html'
 })
 export class CardsComponent implements OnInit {
 
-  cards: Cards[] = [];
+  cards: Card[] = [];  //declaramos una variable y le asigamos el tipo card( interface)
+
+  
 
   constructor(private cardservice: CardService,
-    private router: Router) {
-    
-  }
+              private router: Router) {}
 
   ngOnInit() {
-    // this.cards = this.cardservice.getCards();
+     this.cards = this.cardservice.getCards();  //asignamos cada carta a cards
   }
 
-  // vistaDetalle(idx: number) {
-  //   // console.log(idx);
-  //   return this.router.navigate(['/vistadetalle', idx])
-  // }
+  vistaDetalle(idx: number) {
+    return this.router.navigate(['/vistadetalle', idx]) // retornamos con el navigate la ruta y el parametro que queremos pasar
+  }
 
 }

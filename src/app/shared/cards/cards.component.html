@@ -1,4 +1,16 @@
 
-<app-beach></app-beach>
+ <div *ngFor=" let card of cards" > <!--hacemos un for de car para recorrer todas las tarjetas -->
 
-<app-mountain></app-mountain>
+    <!-- ahora en cada componente ( beach y mountain, donde tenemos dos tipos de tarjeta con categoria diferente) hacemos una comparacion dentro de cada componente con
+    el ngIf para comprobar que tipo de categoria usa y asi pintar uno u otro -->
+
+    <!-- con el (programar) utilizamos el output que viene de los hijos para poder utilizarlo en el ts del padre -->
+
+    <!-- con el [card] asiganamos con el parametro que viene del for directamente desde el html que a su vez viene del ts del padre -->
+
+     <app-beach (propagar)="vistaDetalle($event)"  [card]="card" *ngIf="card.categoria === 1"></app-beach>
+
+   <app-mountain (propagar)="vistaDetalle($event)" [card]="card" *ngIf="card.categoria === 2"></app-mountain>
+   
+   
+</div>

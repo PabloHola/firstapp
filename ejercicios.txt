@@ -1,0 +1,4 @@
+ dentro de la vista detalle, debe haber un texto, que mediante un boton(editar) podamos editar el texto, en cuanto el texto sea editable deben 
+ aparecer dos botones uno para cancelar y otro para guardar, si cancelo se mantiene el texto default, y si guardo se actualiza al ultimo introducido
+  
+  mirarme formularios de angular (recomendacion utilizar el form builder)

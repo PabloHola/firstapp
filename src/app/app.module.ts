@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CardsComponent } from './shared/cards/cards.component';
-import { VistaDetalleComponent } from './vista-detalle/vista-detalle.component';
-import { MountainComponent } from './shared/cards/mountain/mountain.component';
-import { BeachComponent } from './shared/cards/beach/beach.component';
+import { VistaDetalleComponent } from './details/details.component';
+import { MountainComponent } from './shared/cards/mountain/mountain-card.component';
+import { BeachComponent } from './shared/cards/beach/beach-card.component';
+import { MountaindetailComponent } from './details/mountaindetail/mountaindetail.component';
+import { BeachdetailComponent } from './details/beachdetail/beachdetail.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,9 @@ import { BeachComponent } from './shared/cards/beach/beach.component';
     VistaDetalleComponent,
     MountainComponent,
     BeachComponent,
+    MountaindetailComponent,
+    BeachdetailComponent,
+  
     
   ],
   imports: [

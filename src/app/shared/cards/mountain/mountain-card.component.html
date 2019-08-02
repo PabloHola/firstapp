@@ -1,15 +1,19 @@
+<!-- pintamos una sola tarjeta para crear un componente de tarjetas de categoria (mountain) -->
 <div class="container cont">
-        <div class="card" style="width: 18rem;" *ngFor=" let card of cards ">
+        <div class="card" style="width: 18rem;">
             <img [src]="card.img" class="card-img-top" alt="{{card.img}}">
             <div class="card-body">
                 <h4>{{card.nombre}}</h4>
             <p class="card-text">{{card.bio}}</p>
             </div>
     
-            <img class="col-md-8" src="assets/img/playa1.jpg" alt="">
+            <!-- esta foto depende de si es playa o montaña -->
+            <img class="col-md-8" src="assets/img/3.jpg" alt="">
+
+            <!-- -creamos una funcion click para poder acceder a la vista detalle -->
             <button (click)="vistaDetalle(card.id)" class="btn btn-outline-primary">Ver más!!</button>
     
     
         </div>
-      
+    
     </div>
