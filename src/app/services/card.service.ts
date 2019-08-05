@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { log } from 'util';
+import { Logs } from 'selenium-webdriver';
 
 
 @Injectable({
@@ -39,10 +41,18 @@ export class CardService {
 
   ]
 
-  constructor( ) { }
+  constructor( ) { 
+    console.log("constructor");
+  }
 
   getCards(): Card[] {
       return this.cards;
+  }
+
+  updatecard(id: number, bio: string)
+  {
+    let card: Card = this.getCard(id);
+    card.bio = bio;
   }
 
 
@@ -62,10 +72,27 @@ export class CardService {
     // console.log(cardret);
     return cardret;
 
-
-    //return this.cards[id];//arreglar esta parte y definirla para que coincida con el array. //esto estaba antes de crear la funcion de arriba (mal)
-
   }
+
+  upadateCardById(id: number , valor: string) {  //función que viene del ts del hijo para modificar el texto
+  // cuando creo una variable y le digo que es de tipo array, luego puedo asignarle un nuevo valor ya que las arrays em la pila memoria no copian los datos
+  // si no que las dos apuntan a la misma y por lo tanto puedo asignar nuevos valores
+    
+    let arr: Card[]; // le digo que es de tipo array
+    arr = this.cards; // le asigno un valor
+
+    for (let card of arr) {  //recorro esa array para sacar card
+      if (card.id === id) {  //mediante la id que le pase como parametro a la función entro en la carta en concreto en la que estoy
+        card.bio = valor;    // y le asigno un nuevo valor 
+        
+        // console.log(valor);
+        // console.log(card);
+      }
+    }
+    // console.log(this.cards);
+    
+  }
+
 }
 
 export interface Card { // creamos una interface para definir una serie de parametros a cumplir.

@@ -3,6 +3,8 @@
 <!-- rellenamos la estructura de una tarjeta que vamos a utilizar -->
 
 <div *ngIf="card">
+    <!-- creamos el form al que le pasamos como grupo mountainform -->
+    <form [formGroup]="mountainForm" > 
     <h1>{{card.nombre}} </h1>
     
     <div class="row">
@@ -11,9 +13,20 @@
                         <img [src]="card.img" class="card-img-top" alt="{{card.img}}">
                         <div class="card-body">
                             <h4>{{card.nombre}}</h4>
-                        <p class="card-text">{{card.bio}}</p>
+                            <!-- el ejercicio trata de editar este texto que esta en disabled, pero existe la posibilidad de que si cuando he escrito decido mantener el mismo
+                            texto, le doy a cancelar y recupero el texto, si todo va bien le doy a guardar y me asigna un nuevo valor al textarea -->
+
+                            <!-- en este caso lo vamos a hacer con el formbuilder -->
+                            <!-- para llamar al poder atacar al textarea tenemos que pasarle el controlname y pasarle un valor, aqui ya no se puede integrar la etiqueta 
+                            disabled, lo hacemos desde el ts-->
+                            <textarea    cols="20" rows="10" formControlName="bio"></textarea> 
                         </div>
-                
+
+                        <!-- con los botones editar, guardar y cancelar, realizamos el ejercicio, cada boton lleva su funcion correspondiente y un ngIf añadido para
+                        que aparezcan y desparzcan, en principio solo sale editar, en el momento que pulso editar desparece y aparecen guardar y cancelar-->
+                        <a class="btn btn-outline-primary btn-block" *ngIf="edits === true" (click)="edit(text)">Editar!!</a>
+                        <a class="btn btn-outline-primary btn-block" *ngIf="save === true" (click)="saves()">Guardar!!</a>
+                        <a class="btn btn-outline-primary btn-block" *ngIf="save === true" (click)="cancel()">Cancelar!!</a>
                       <a class="btn btn-outline-danger btn-block"   (click)="IamMountain()"> Acción!!!</a>
                     </div>
     
@@ -21,4 +34,5 @@
     
     
     </div>
+</form>
 </div>

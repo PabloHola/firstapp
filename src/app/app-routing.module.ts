@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {path : 'vistadetalle/:id', component: VistaDetalleComponent},  
+  {path : 'home', component: HomeComponent},  
   {path : '**', component: HomeComponent}  
 ];
 

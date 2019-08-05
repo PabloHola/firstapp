@@ -3,6 +3,7 @@
 <!-- inicializamos con un if de card para ver si existe, en el caso de que no, que no nos de un pete -->
 <!-- rellenamos la estructura de una tarjeta que vamos a utilizar -->
 <div *ngIf="card">
+    
     <h1>{{card.nombre}} </h1>
     
     <div class="row">
@@ -11,14 +12,24 @@
                         <img [src]="card.img" class="card-img-top" alt="{{card.img}}">
                         <div class="card-body">
                             <h4>{{card.nombre}}</h4>
-                        <p class="card-text">{{card.bio}}</p>
+                            <!-- el ejercicio trata de editar este texto que esta en disabled, pero existe la posibilidad de que si cuando he escrito decido mantener el mismo
+                            texto, le doy a cancelar y recupero el texto, si todo va bien le doy a guardar y me asigna un nuevo valor al textarea -->
+
+                            <!-- en este caso lo vamos a hacer con el ngModel, le paso el valor de la card.bio para cogerlo en el ts y ademas aqui podemos pasarle el
+                            disabled en la misma etiqueta textarea -->
+                            <textarea  [disabled]="text"  cols="20" rows="10" [(ngModel)]="card.bio" ></textarea> 
                         </div>
-                
-                      <a class="btn btn-outline-danger btn-block"   (click)="IamBeach()"> Acción!!!</a>
-                    </div>
+
+                        <!-- con los botones editar, guardar y cancelar, realizamos el ejercicio, cada boton lleva su funcion correspondiente y un ngIf añadido para
+                        que aparezcan y desparzcan, en principio solo sale editar, en el momento que pulso editar desparece y aparecen guardar y cancelar-->
+                        <a class="btn btn-outline-primary btn-block" *ngIf="editstatus === true" (click)="edit(text)" >Editar!!</a>
+                        <button class="btn btn-primary" *ngIf="savestatus === false" (click)="savetext(card.bio)"  >Guardar!!</button>
+                        <button class="btn btn-danger" *ngIf="savestatus === false" (click)="cancel()" >Cancelar!!</button>
+                        <a class="btn btn-outline-danger btn-block"   (click)="IamBeach()"> Acción!!!</a>
+                </div>
     
         </div>
     
     
-    </div>
+
 </div>
