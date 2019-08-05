@@ -9,6 +9,7 @@ import {  Router } from '@angular/router';
 export class BeachdetailComponent implements OnInit {
 
   text: boolean;       //la variable text pertenece al textarea
+  name:boolean;
   savestatus: boolean; //esta es para que aparezca el boton guardar y cancelar
   editstatus: boolean; // esta para que aparezca el boton editar
   originBio: string;   // esta para asignarle el valor del card.bio
@@ -20,6 +21,7 @@ export class BeachdetailComponent implements OnInit {
 
   ngOnInit() {
     this.text = true;       //con el text en true iniciamos la app con el texto en disabled
+    this.name = true;
     this.savestatus = true; // boton guardar y cancelar ocultos
     this.editstatus = true; // boton editar visible
     this.originBio = this.card.bio;  // asignamos a originBio el valor de la card.bio para usarlo en el cancelar
@@ -30,12 +32,14 @@ export class BeachdetailComponent implements OnInit {
 
   edit(){  // funcion edit creada por el boton editar
     this.text = false;        //pone el texto en false para que sea editable
+    this.name = false;
     this.savestatus = false;  //pone los botones guardar y cancelar visibles
     this.editstatus = false;  //oculta el boton editar
   }
 
-  savetext(newbio: string) {  // funcion guardar
-    this._cardservice.upadateCardById(this.card.id , newbio);  // instancia al servicio, crea una funcion para usarla en el cardservice y le pasa como parametros la id y newbio
+  savetext(newbio: string, newname:string) {  // funcion guardar
+
+    this._cardservice.upadateCardById(this.card.id , newbio, newname);  // instancia al servicio, crea una funcion para usarla en el cardservice y le pasa como parametros la id y newbio
     // console.log(newbio);
     this.text = true;  // para volver a poner el texto en disabled
     this.router.navigate(['/home']); // redirección a la home
