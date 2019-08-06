@@ -74,7 +74,7 @@ export class CardService {
 
   }
 
-  upadateCardById(id: number , valor: string) {  //función que viene del ts del hijo para modificar el texto
+  upadateCardById(updatedCard: Card) {  //función que viene del ts del hijo para modificar el texto
   // cuando creo una variable y le digo que es de tipo array, luego puedo asignarle un nuevo valor ya que las arrays em la pila memoria no copian los datos
   // si no que las dos apuntan a la misma y por lo tanto puedo asignar nuevos valores
     
@@ -82,8 +82,8 @@ export class CardService {
     arr = this.cards; // le asigno un valor
 
     for (let card of arr) {  //recorro esa array para sacar card
-      if (card.id === id) {  //mediante la id que le pase como parametro a la función entro en la carta en concreto en la que estoy
-        card.bio = valor;    // y le asigno un nuevo valor 
+      if (card.id === updatedCard.id) {  //mediante la id que le pase como parametro a la función entro en la carta en concreto en la que estoy
+        card = updatedCard;    // y le asigno un nuevo valor 
         
         // console.log(valor);
         // console.log(card);

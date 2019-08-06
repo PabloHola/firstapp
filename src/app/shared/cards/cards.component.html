@@ -8,7 +8,7 @@
 
     <!-- con el [card] asiganamos con el parametro que viene del for directamente desde el html que a su vez viene del ts del padre -->
 
-     <app-beach (propagar)="vistaDetalle($event)"  [card]="card" *ngIf="card.categoria === 1"></app-beach>
+     <app-beach (propagar)="vistaDetalle(card.id)"  [card]="card" *ngIf="card.categoria === 1"></app-beach>
 
    <app-mountain (propagar)="vistaDetalle($event)" [card]="card" *ngIf="card.categoria === 2"></app-mountain>
    

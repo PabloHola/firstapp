@@ -24,7 +24,7 @@
                         <!-- con los botones editar, guardar y cancelar, realizamos el ejercicio, cada boton lleva su funcion correspondiente y un ngIf añadido para
                         que aparezcan y desparzcan, en principio solo sale editar, en el momento que pulso editar desparece y aparecen guardar y cancelar-->
                         <a class="btn btn-outline-primary btn-block" *ngIf="editstatus === true" (click)="edit(text)" >Editar!!</a>
-                        <button class="btn btn-primary" *ngIf="savestatus === false" (click)="savetext(card.bio, card.nombre)" >Guardar!!</button>
+                        <button class="btn btn-primary" *ngIf="savestatus === false" (click)="savetext()" >Guardar!!</button>
                         <button class="btn btn-danger" *ngIf="savestatus === false" (click)="cancel()" >Cancelar!!</button>
                         <a class="btn btn-outline-danger btn-block"   (click)="IamBeach()"> Acción!!!</a>
                 </div>
